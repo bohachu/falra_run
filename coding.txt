@@ -1,2 +1,52 @@
+== 2022-11-24 bowen caro ==
+照理來說，下面的 cli json 應該要可以跑在兩個以上的 replit 讓遠端呼叫
+解壓縮 .zip 
+橫轉直
+寫入wasabi s3
+變狂暴流資料庫
+
+{
+  "註解1": "這是FastAPI收到後，通用類型的分散遠端執行套件法",
+  "token": "ABDJEFKJSDKFJKJWEJFKDJSFJWEKJFKWDJF",
+  "fn": "read_zip_csv_chunk.read_zip_csv_chunk",
+  "註解2": "token pkg_fn 這兩個會被拿掉之後，下面的才是參數",
+  "zip_url": "https://iot.com/1032_108-109年高雄市空氣品質感測物聯網布建計畫_2019_12_橫向資料_2.zip",
+  "lst_fn": [
+    {
+      "fn": "cameo_df.rename_col",
+      "dic_mapping": {
+        "PM2_5(mg/m3)": "pm2_5",
+        "HUMIDITY(%)": "humidity"
+      }
+    },
+    {
+      "fn": "cameo_df.horizontal_to_vertical",
+      "lst_horizontal_col": [
+        "TVOCSA()",
+        "PM2_5(mg/m3)",
+        "PM10(mg/m3)",
+        "TEMPERATURE(℃)",
+        "HUMIDITY(%)",
+        "WIND_SPEED(m/sec)",
+        "VOC()",
+        "WIND_DIRECT(degrees)"
+      ],
+      "vertical_col": "sensorId"
+    },
+    {
+      "fn": "cameo_df.clone_col",
+      "dic_mapping": {
+        "TIME": "createTime"
+      }
+    },
+    {
+      "fn": "cameo_df.write_to_s3",
+      "s3_url": "https://asdfas",
+      "s3_key": "ASDFSDF",
+      "directory": "data/out/1032_108-109年高雄市空氣品質感測物聯網布建計畫_2019_12_橫向資料_2/"
+    }
+  ]
+}
+
 == 2022-11-09 bowen ==
 08:43 at 高中英文簡報現場，成功包裝 pip package for falra_run
