@@ -5,6 +5,58 @@
 寫入wasabi s3
 變狂暴流資料庫
 
+如果你有拿到falra token有付費年費
+就可以用後面的機器做事情
+開發者的工具沒錯
+
+最簡單的模擬比較像是這樣
+
+{
+  "token": "ABDJEFKJSDKFJKJWEJFKDJSFJWEKJFKWDJF",
+  "fn": "falra_test_add.add",
+  "int_a":1,
+  "int_b":2
+}
+
+option1: jc客戶，一定要上架pip
+好處1: 公開透明原始碼，機率低被駭客亂搞
+好處2: pip install 雲端的東西是世界標準，所以安裝別人寫的套件超容易
+壞處1: jc客戶如果不想公開原始碼，就ㄔㄨㄚ ㄙㄞ
+
+option2: jc客戶丟一個 .py 給我們，用 what ever 方法傳給我們，我們動態匯入
+好處1: 開發者不用上架pip簡單一點
+好處2: 可以讓jc客戶不用公開原始碼
+壞處1: 寫匯入的程式碼路徑錯誤就會掛掉
+壞處2: 有可能 replit 主機資源被亂搞，我們也沒辦法透過 open source 監督，拿我們當跳板攻擊別人
+
+001 忘逆向完蛋蛋：逆向工程心法，架構師最怕的就是自己發明一個之後，忘記先逆向工程，很多沒有考慮到
+002 逆向完不發明：架構師更怕的，逆向工程完成之後，自己不想要發明一個（因為自己發明的，通常都簡單十倍，效能會更好）
+003 先逆向再發明：架構師應該要做的，每次都要這樣才行，簡單十倍，效能好三倍
+
+deno serverless
+vercel
+aws serverless
+
+逆向工程完畢，caro 建議 deno deploy and vercel 都是用 import github 架構
+
+所以：
+萬一 caro jc 兩個客戶，同時有兩個 github 想要在同一個 repl 執行，我們技術怎麼匯入？
+git_caro
+git_jc
+
+falra_run
+    github
+        git_caro
+            add.py
+                def add(a,b):
+        git_jc
+            multiply.py
+                def multiply(a,b):
+
+執行的時候會切換路徑到正確可以 import 的路徑，動態匯入，動態執行
+
+~~
+
 {
   "註解1": "這是FastAPI收到後，通用類型的分散遠端執行套件法",
   "token": "ABDJEFKJSDKFJKJWEJFKDJSFJWEKJFKWDJF",
